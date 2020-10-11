@@ -42,7 +42,7 @@ public class WikipediaClient {
 //                    .getAsJsonPrimitive("extract")
 //                    .getAsString());
             return json.getAsJsonObject(keySet.get(0))
-                     .getAsJsonPrimitive("extract")
+                    .getAsJsonPrimitive("extract")
                     .getAsString();
         } catch (IOException e) {
             e.printStackTrace();

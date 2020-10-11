@@ -25,6 +25,7 @@ public class FrequencyDictionaryPlugin
         return printMap(sortedMapDesc);
 
     }
+
     private static Map<String, Integer> sortByValue(Map<String, Integer> unsortMap, final boolean order) {
         List<Map.Entry<String, Integer>> list = new LinkedList<>(unsortMap.entrySet());
         list.sort((o1, o2) -> order ? o1.getValue().compareTo(o2.getValue()) == 0
