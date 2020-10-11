@@ -8,6 +8,7 @@ import ru.digitalhabbits.homework1.service.PluginLoader;
 import ru.digitalhabbits.homework1.service.WikipediaClient;
 
 import javax.annotation.Nonnull;
+import java.io.IOException;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;

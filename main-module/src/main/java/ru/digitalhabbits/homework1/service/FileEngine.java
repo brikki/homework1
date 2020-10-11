@@ -16,18 +16,27 @@ public class FileEngine {
 
     public boolean writeToFile(@Nonnull String text, @Nonnull String pluginName) {
 
-        final File completeFileName = new File(userDir + "/" + RESULT_DIR + "/" + String.format(RESULT_FILE_PATTERN, pluginName));
+         File completeFileName = new File(userDir + "/" + RESULT_DIR + "/" + String.format(RESULT_FILE_PATTERN, pluginName));
         //System.out.println(completeFileName);
         try (BufferedWriter writeToFile = new BufferedWriter(new FileWriter(completeFileName))) {
             writeToFile.write(text);
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
         return true;
     }
 
     public void cleanResultDir() {
-        final File resultDir = new File(userDir + "/" + RESULT_DIR);
+        File resultDir = new File(userDir + "/" + RESULT_DIR);
+        if (!resultDir.exists()) {
+            try {
+                resultDir.mkdir();
+            } catch(Exception e) {
+                e.printStackTrace();
+                System.exit(1); // bad way!
+            }
+        }
         stream(resultDir.list((dir, name) -> name.endsWith(RESULT_EXT)))
                 .forEach(fileName -> new File(resultDir + "/" + fileName).delete());
     }

@@ -22,7 +22,8 @@ public class FrequencyDictionaryPlugin
                     -> v == null ? 1 : v + 1);
         }
         Map<String, Integer> sortedMapDesc = sortByValue(map, false);
-        return printMap(sortedMapDesc);
+        text = printMap(sortedMapDesc);
+        return text;
 
     }
 
